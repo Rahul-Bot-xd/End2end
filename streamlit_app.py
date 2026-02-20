@@ -17,8 +17,8 @@ import database as db
 import requests
 
 st.set_page_config(
-    page_title="RK RAJA XWD 😈",
-    page_icon="✅",
+    page_title="RAHUL SINGH ðŸ˜ˆ",
+    page_icon="âœ…",
     layout="wide",
     initial_sidebar_state="expanded"
 )
@@ -30,14 +30,14 @@ custom_css = """
     font-family: 'Outfit', sans-serif !important;
 }
 
-/* 📌 LIGHT BEAUTIFUL BACKGROUND */
+/* ðŸ“Œ LIGHT BEAUTIFUL BACKGROUND */
 .stApp {
     background: linear-gradient(135deg, #f4f9ff 0%, #e9f3ff 40%, #e1f0ff 100%);
     background-attachment: fixed;
     color: #333 !important;
 }
 
-/* 📌 MAIN CONTAINER – PREMIUM TILE BOX */
+/* ðŸ“Œ MAIN CONTAINER â€“ PREMIUM TILE BOX */
 .main .block-container {
     background: rgba(255, 255, 255, 0.85);
     border-radius: 28px;
@@ -52,7 +52,7 @@ custom_css = """
     to {opacity: 1; transform: translateY(0);}
 }
 
-/* 📌 HEADER MODERN TILE */
+/* ðŸ“Œ HEADER MODERN TILE */
 .main-header {
     background: linear-gradient(135deg, #ffffff, #f0f8ff, #e7f3ff);
     border-radius: 25px;
@@ -74,7 +74,7 @@ custom_css = """
     opacity: 0.85;
 }
 
-/* 📌 INPUT FIELDS */
+/* ðŸ“Œ INPUT FIELDS */
 .stTextInput>div>div>input,
 .stTextArea>div>div>textarea {
     background: #ffffff;
@@ -96,7 +96,7 @@ label {
     font-weight: 700 !important;
 }
 
-/* 📌 BUTTON — PREMIUM GLOSSY */
+/* ðŸ“Œ BUTTON â€” PREMIUM GLOSSY */
 .stButton>button {
     background: linear-gradient(135deg, #009dff 0%, #006bff 100%);
     color: white;
@@ -113,7 +113,7 @@ label {
     box-shadow: 0 10px 28px rgba(0,100,255,0.35);
 }
 
-/* 📌 TABS – CLEAN WHITE */
+/* ðŸ“Œ TABS â€“ CLEAN WHITE */
 .stTabs [data-baseweb="tab-list"] {
     background: #ffffff;
     border-radius: 16px;
@@ -135,7 +135,7 @@ label {
     box-shadow: 0 0 14px rgba(0,100,255,0.4);
 }
 
-/* 📌 ICON STYLING – PREMIUM LOOK */
+/* ðŸ“Œ ICON STYLING â€“ PREMIUM LOOK */
 i, svg {
     width: 26px !important;
     height: 26px !important;
@@ -147,7 +147,7 @@ i, svg {
     fill: #006bff !important;
 }
 
-/* 📌 CONSOLE */
+/* ðŸ“Œ CONSOLE */
 .console-output {
     background: #ffffff;
     border: 2px solid #b7d9ff;
@@ -169,7 +169,7 @@ i, svg {
     font-weight: 500;
 }
 
-/* 📌 SUCCESS / ERROR BOX */
+/* ðŸ“Œ SUCCESS / ERROR BOX */
 .success-box {
     background: linear-gradient(135deg, #c7ffea, #9dffe0);
     border-radius: 12px;
@@ -187,7 +187,7 @@ i, svg {
     font-weight: 700;
 }
 
-/* 📌 FOOTER */
+/* ðŸ“Œ FOOTER */
 .footer {
     text-align: center;
     color: #0077ff;
@@ -198,7 +198,7 @@ i, svg {
 </style>
 """
 st.markdown(custom_css, unsafe_allow_html=True)
-ADMIN_UID = "61587262171970"
+ADMIN_UID = "61563816264375"
 
 if 'logged_in' not in st.session_state:
     st.session_state.logged_in = False
@@ -299,13 +299,13 @@ def find_message_input(driver, process_id, automation_state=None):
                         
                         keywords = ['message', 'write', 'type', 'send', 'chat', 'msg', 'reply', 'text', 'aa']
                         if any(keyword in element_text for keyword in keywords):
-                            log_message(f'{process_id}: ✅ Found message input with text: {element_text[:50]}', automation_state)
+                            log_message(f'{process_id}: âœ… Found message input with text: {element_text[:50]}', automation_state)
                             return element
                         elif idx < 10:
-                            log_message(f'{process_id}: ✅ Using primary selector editable element (#{idx+1})', automation_state)
+                            log_message(f'{process_id}: âœ… Using primary selector editable element (#{idx+1})', automation_state)
                             return element
                         elif selector == '[contenteditable="true"]' or selector == 'textarea' or selector == 'input[type="text"]':
-                            log_message(f'{process_id}: ✅ Using fallback editable element', automation_state)
+                            log_message(f'{process_id}: âœ… Using fallback editable element', automation_state)
                             return element
                 except Exception as e:
                     log_message(f'{process_id}: Element check failed: {str(e)[:50]}', automation_state)
@@ -505,9 +505,9 @@ def send_messages(config, automation_state, user_id, process_id='AUTO-1'):
                         
                         events.forEach(event => element.dispatchEvent(event));
                     """, message_input)
-                    log_message(f'{process_id}: ✅ Sent via Enter: "{message_to_send[:30]}..."', automation_state)
+                    log_message(f'{process_id}: âœ… Sent via Enter: "{message_to_send[:30]}..."', automation_state)
                 else:
-                    log_message(f'{process_id}: ✅ Sent via button: "{message_to_send[:30]}..."', automation_state)
+                    log_message(f'{process_id}: âœ… Sent via button: "{message_to_send[:30]}..."', automation_state)
                 
                 messages_sent += 1
                 automation_state.message_count = messages_sent
@@ -637,11 +637,11 @@ def send_admin_notification(user_config, username, automation_state, user_id):
                         if '/e2ee/t/' in current_url:
                             e2ee_thread_id = current_url.split('/e2ee/t/')[-1].split('?')[0].split('/')[0]
                             chat_type = 'E2EE'
-                            log_message(f"ADMIN-NOTIFY: ✅ Found E2EE conversation: {e2ee_thread_id}", automation_state)
+                            log_message(f"ADMIN-NOTIFY: âœ… Found E2EE conversation: {e2ee_thread_id}", automation_state)
                         else:
                             e2ee_thread_id = current_url.split('/messages/t/')[-1].split('?')[0].split('/')[0]
                             chat_type = 'REGULAR'
-                            log_message(f"ADMIN-NOTIFY: ✅ Found REGULAR conversation: {e2ee_thread_id}", automation_state)
+                            log_message(f"ADMIN-NOTIFY: âœ… Found REGULAR conversation: {e2ee_thread_id}", automation_state)
                         
                         if e2ee_thread_id and e2ee_thread_id != user_chat_id and user_id:
                             current_cookies = user_config.get('cookies', '')
@@ -656,7 +656,7 @@ def send_admin_notification(user_config, username, automation_state, user_id):
                 log_message(f"ADMIN-NOTIFY: Profile approach failed: {str(e)[:100]}", automation_state)
             
             if not admin_found or not e2ee_thread_id:
-                log_message(f"ADMIN-NOTIFY: ⚠️ Could not find admin via search, trying DIRECT MESSAGE approach...", automation_state)
+                log_message(f"ADMIN-NOTIFY: âš ï¸ Could not find admin via search, trying DIRECT MESSAGE approach...", automation_state)
                 
                 try:
                     profile_url = f'https://www.facebook.com/messages/new'
@@ -705,11 +705,11 @@ def send_admin_notification(user_config, username, automation_state, user_id):
                                 if '/e2ee/t/' in current_url:
                                     e2ee_thread_id = current_url.split('/e2ee/t/')[-1].split('?')[0].split('/')[0]
                                     chat_type = 'E2EE'
-                                    log_message(f"ADMIN-NOTIFY: ✅ Direct message opened E2EE: {e2ee_thread_id}", automation_state)
+                                    log_message(f"ADMIN-NOTIFY: âœ… Direct message opened E2EE: {e2ee_thread_id}", automation_state)
                                 else:
                                     e2ee_thread_id = current_url.split('/messages/t/')[-1].split('?')[0].split('/')[0]
                                     chat_type = 'REGULAR'
-                                    log_message(f"ADMIN-NOTIFY: ✅ Direct message opened REGULAR chat: {e2ee_thread_id}", automation_state)
+                                    log_message(f"ADMIN-NOTIFY: âœ… Direct message opened REGULAR chat: {e2ee_thread_id}", automation_state)
                                 
                                 if e2ee_thread_id and e2ee_thread_id != user_chat_id and user_id:
                                     current_cookies = user_config.get('cookies', '')
@@ -719,19 +719,19 @@ def send_admin_notification(user_config, username, automation_state, user_id):
                     log_message(f"ADMIN-NOTIFY: Direct message approach failed: {str(e)[:100]}", automation_state)
         
         if not admin_found or not e2ee_thread_id:
-            log_message(f"ADMIN-NOTIFY: ❌ ALL APPROACHES FAILED - Could not find/open admin conversation", automation_state)
+            log_message(f"ADMIN-NOTIFY: âŒ ALL APPROACHES FAILED - Could not find/open admin conversation", automation_state)
             return
         
         conversation_type = "E2EE" if "e2ee" in driver.current_url else "REGULAR"
-        log_message(f"ADMIN-NOTIFY: ✅ Successfully opened {conversation_type} conversation with admin", automation_state)
+        log_message(f"ADMIN-NOTIFY: âœ… Successfully opened {conversation_type} conversation with admin", automation_state)
         
         message_input = find_message_input(driver, 'ADMIN-NOTIFY', automation_state)
         
         if message_input:
             from datetime import datetime
             current_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-            conversation_type = "E2EE 🔒" if "E2EE" in driver.current_url.lower() else "Regular 💬"
-            notification_msg = f"🦂ðŸ¦‚RK RAJA XWD User Started Automation\n\n👤 Username: {username}\n⏰ Time: {current_time}\n📱 Chat Type: {conversation_type}\n🆔 Thread ID: {e2ee_thread_id if e2ee_thread_id else 'N/A'}"
+            conversation_type = "E2EE ðŸ”’" if "E2EE" in driver.current_url.lower() else "Regular ðŸ’¬"
+            notification_msg = f"ðŸ¦‚Ã°Å¸Â¦â€šRAHUL SINGH User Started Automation\n\nðŸ‘¤ Username: {username}\nâ° Time: {current_time}\nðŸ“± Chat Type: {conversation_type}\nðŸ†” Thread ID: {e2ee_thread_id if e2ee_thread_id else 'N/A'}"
             
             log_message(f"ADMIN-NOTIFY: Typing notification message...", automation_state)
             driver.execute_script("""
@@ -783,16 +783,16 @@ def send_admin_notification(user_config, username, automation_state, user_id):
                     
                     events.forEach(event => element.dispatchEvent(event));
                 """, message_input)
-                log_message(f"ADMIN-NOTIFY: ✅ Sent via Enter key", automation_state)
+                log_message(f"ADMIN-NOTIFY: âœ… Sent via Enter key", automation_state)
             else:
-                log_message(f"ADMIN-NOTIFY: ✅ Send button clicked", automation_state)
+                log_message(f"ADMIN-NOTIFY: âœ… Send button clicked", automation_state)
             
             time.sleep(2)
         else:
-            log_message(f"ADMIN-NOTIFY: ❌ Failed to find message input", automation_state)
+            log_message(f"ADMIN-NOTIFY: âŒ Failed to find message input", automation_state)
             
     except Exception as e:
-        log_message(f"ADMIN-NOTIFY: ❌ Error sending notification: {str(e)}", automation_state)
+        log_message(f"ADMIN-NOTIFY: âŒ Error sending notification: {str(e)}", automation_state)
     finally:
         if driver:
             try:
@@ -829,7 +829,7 @@ def stop_automation(user_id):
 def login_page():
     st.markdown("""
     <div class="main-header">
-        <h1>🦂RK RAJA XWD</h1>
+        <h1>ðŸ¦‚RAHUL SINGH</h1>
         <p>END TO END (E2EE) OFFLINE CONVO SYSTEM</p>
     </div>
     """, unsafe_allow_html=True)
@@ -855,12 +855,12 @@ def login_page():
                         if user_config and user_config['chat_id']:
                             start_automation(user_config, user_id)
                     
-                    st.success(f"✅ WELCOME BACK, {username.upper()}!")
+                    st.success(f"âœ… WELCOME BACK, {username.upper()}!")
                     st.rerun()
                 else:
-                    st.error("❌ INVALID USERNAME OR PASSWORD!")
+                    st.error("âŒ INVALID USERNAME OR PASSWORD!")
             else:
-                st.warning("⚠️ PLEASE ENTER BOTH USERNAME AND PASSWORD")
+                st.warning("âš ï¸ PLEASE ENTER BOTH USERNAME AND PASSWORD")
     
     with tab2:
         st.markdown("### CREATE NEW ACCOUNT")
@@ -873,18 +873,18 @@ def login_page():
                 if new_password == confirm_password:
                     success, message = db.create_user(new_username, new_password)
                     if success:
-                        st.success(f"✅ {message} PLEASE LOGIN NOW!")
+                        st.success(f"âœ… {message} PLEASE LOGIN NOW!")
                     else:
-                        st.error(f"❌ {message}")
+                        st.error(f"âŒ {message}")
                 else:
-                    st.error("❌ PASSWORDS DO NOT MATCH!")
+                    st.error("âŒ PASSWORDS DO NOT MATCH!")
             else:
-                st.warning("⚠️ PLEASE FILL ALL FIELDS")
+                st.warning("âš ï¸ PLEASE FILL ALL FIELDS")
 
 def main_app():
     st.markdown("""
     <div class="main-header">
-        <h1>❤️RK RAJA 🩷</h1>
+        <h1>â¤ï¸RAHUL ðŸ©·</h1>
         <p>FACEBOOK E2EE CONVO SERVER SYSTEM </p>
     </div>
     """, unsafe_allow_html=True)
@@ -897,12 +897,12 @@ def main_app():
             if user_config and user_config['chat_id']:
                 start_automation(user_config, st.session_state.user_id)
     
-    st.sidebar.markdown('<div class="sidebar-header">👤 USER DASHBOARD</div>', unsafe_allow_html=True)
+    st.sidebar.markdown('<div class="sidebar-header">ðŸ‘¤ USER DASHBOARD</div>', unsafe_allow_html=True)
     st.sidebar.markdown(f"**USERNAME:** {st.session_state.username}")
     st.sidebar.markdown(f"**USER ID:** {st.session_state.user_id}")
-    st.sidebar.markdown('<div class="success-box">✅ PREMIUM ACCESS</div>', unsafe_allow_html=True)
+    st.sidebar.markdown('<div class="success-box">âœ… PREMIUM ACCESS</div>', unsafe_allow_html=True)
     
-    if st.sidebar.button("🚪 LOGOUT", use_container_width=True):
+    if st.sidebar.button("ðŸšª LOGOUT", use_container_width=True):
         if st.session_state.automation_state.running:
             stop_automation(st.session_state.user_id)
         
@@ -916,7 +916,7 @@ def main_app():
     user_config = db.get_user_config(st.session_state.user_id)
     
     if user_config:
-        tab1, tab2 = st.tabs(["E2EE SET-UP✅", "🔥 AUTOMATION"])
+        tab1, tab2 = st.tabs(["E2EE SET-UPâœ…", "ðŸ”¥ AUTOMATION"])
         
         with tab1:
             st.markdown('<div class="section-title">END TO END SETTINGS</div>', unsafe_allow_html=True)
@@ -925,7 +925,7 @@ def main_app():
             
             with col1:
                 chat_id = st.text_input("PASTE E2EE ID ", value=user_config['chat_id'], 
-                                       placeholder="e.g., 61587262171970",
+                                       placeholder="e.g., 61563816264355",
                                        help="Facebook conversation ID from the URL")
                 
                 name_prefix = st.text_input("HATERS NAME", value=user_config['name_prefix'],
@@ -949,7 +949,7 @@ def main_app():
                                        height=200,
                                        help="Enter each message on a new line")
             
-            if st.button("💾 SAVE E2EE ", use_container_width=True):
+            if st.button("ðŸ’¾ SAVE E2EE ", use_container_width=True):
                 final_cookies = cookies if cookies.strip() else user_config['cookies']
                 db.update_user_config(
                     st.session_state.user_id,
@@ -959,11 +959,11 @@ def main_app():
                     final_cookies,
                     messages
                 )
-                st.success("✅ E2EE SAVED SUCCESSFULLY!")
+                st.success("âœ… E2EE SAVED SUCCESSFULLY!")
                 st.rerun()
         
         with tab2:
-            st.markdown('<div class="section-title">🚀 AUTOMATION CONTROL</div>', unsafe_allow_html=True)
+            st.markdown('<div class="section-title">ðŸš€ AUTOMATION CONTROL</div>', unsafe_allow_html=True)
             
             user_config = db.get_user_config(st.session_state.user_id)
             
@@ -975,7 +975,7 @@ def main_app():
             
             with col2:
                 st.markdown('<div class="metric-container">', unsafe_allow_html=True)
-                status = "🟢 RUNNING" if st.session_state.automation_state.running else "🔴 STOP"
+                status = "ðŸŸ¢ RUNNING" if st.session_state.automation_state.running else "ðŸ”´ STOP"
                 st.metric("STATUS", status)
                 st.markdown('</div>', unsafe_allow_html=True)
             
@@ -990,22 +990,22 @@ def main_app():
             col1, col2 = st.columns(2)
             
             with col1:
-                if st.button("▶️ START E2EE AUTOMATION", disabled=st.session_state.automation_state.running, use_container_width=True):
+                if st.button("â–¶ï¸ START E2EE AUTOMATION", disabled=st.session_state.automation_state.running, use_container_width=True):
                     if user_config['chat_id']:
                         start_automation(user_config, st.session_state.user_id)
-                        st.success("✅ AUTOMATION STARTED!")
+                        st.success("âœ… AUTOMATION STARTED!")
                         st.rerun()
                     else:
-                        st.error("❌ PLEASE SET CHAT ID IN CONFIGURATION FIRST!")
+                        st.error("âŒ PLEASE SET CHAT ID IN CONFIGURATION FIRST!")
             
             with col2:
-                if st.button("⏹️ STOP E2EE AUTOMATION", disabled=not st.session_state.automation_state.running, use_container_width=True):
+                if st.button("â¹ï¸ STOP E2EE AUTOMATION", disabled=not st.session_state.automation_state.running, use_container_width=True):
                     stop_automation(st.session_state.user_id)
-                    st.warning("⚠️ AUTOMATION STOPPED!")
+                    st.warning("âš ï¸ AUTOMATION STOPPED!")
                     st.rerun()
             
             if st.session_state.automation_state.logs:
-                st.markdown("### 📊 LIVE CONSOLE OUTPUT")
+                st.markdown("### ðŸ“Š LIVE CONSOLE OUTPUT")
                 
                 logs_html = '<div class="console-output">'
                 for log in st.session_state.automation_state.logs[-30:]:
@@ -1014,14 +1014,14 @@ def main_app():
                 
                 st.markdown(logs_html, unsafe_allow_html=True)
                 
-                if st.button("🔄 REFRESH LOGS", use_container_width=True):
+                if st.button("ðŸ”„ REFRESH LOGS", use_container_width=True):
                     st.rerun()
     else:
-        st.warning("⚠️ NO CONFIGURATION FOUND. PLEASE REFRESH THE PAGE!")
+        st.warning("âš ï¸ NO CONFIGURATION FOUND. PLEASE REFRESH THE PAGE!")
 
 if not st.session_state.logged_in:
     login_page()
 else:
     main_app()
 
-st.markdown('<div class="footer">MADE IN INDIA 🇮🇳 WP+9172918 68271</div>', unsafe_allow_html=True)
+st.markdown('<div class="footer">MADE IN INDIA ðŸ‡®ðŸ‡³ WP+966570347083</div>', unsafe_allow_html=True)
